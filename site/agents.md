@@ -8,7 +8,7 @@ nothing here is aspirational. Human docs: <https://github.com/Jayanth-reflex/fpr
 ## What this is
 
 `fpr` removes password protection from a file **after being given the
-correct password**, and adds a password to a PDF or ZIP (`fpr protect`). It runs entirely on the local machine: no network code
+correct password**, and sets a password on a PDF or ZIP (`fpr protect`). It runs entirely on the local machine: no network code
 exists in the package (enforced by a test that parses every module and blocks
 `socket.connect`), so nothing about the file or the password can be exfiltrated
 by this tool, by design, not by configuration you could disable.
