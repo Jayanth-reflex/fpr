@@ -12,8 +12,8 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="File Password Remover">
-<meta property="og:title" content="File Password Remover — unlock files you own, locally">
-<meta property="og:description" content="Local, verified password removal for PDF, Office, ZIP and 7-Zip. No uploads. No network code at all.">
+<meta property="og:title" content="File Password Remover — lock and unlock files you own, locally">
+<meta property="og:description" content="Remove passwords from PDF, Office, ZIP and 7-Zip files, or add one to a PDF or ZIP. Local, verified, no network code at all.">
 <meta property="og:url" content="https://file-password-remover.vercel.app/">
 <meta property="og:image" content="https://file-password-remover.vercel.app/assets/og-cover.png">
 <meta property="og:image:width" content="760">
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="File Password Remover — unlock files you own, locally">
-<meta name="twitter:description" content="Local, verified password removal for PDF, Office, ZIP and 7-Zip. No uploads. No network code at all.">
+<meta name="twitter:description" content="Remove passwords from PDF, Office, ZIP and 7-Zip files, or add one to a PDF or ZIP. Local, verified, no network code at all.">
 <meta name="twitter:image" content="https://file-password-remover.vercel.app/assets/og-cover.png">
 
 <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
@@ -34,15 +34,15 @@
   "@type": "SoftwareApplication",
   "name": "File Password Remover",
   "alternateName": "fpr",
-  "description": "Removes password protection from PDF, Office, ZIP and 7-Zip files locally, after the correct password is supplied. No uploads, no network code, output verified before success is reported.",
+  "description": "Removes password protection from PDF, Office, ZIP and 7-Zip files locally, after the correct password is supplied, and adds a password to PDF and ZIP files. No uploads, no network code, output verified before success is reported.",
   "url": "https://file-password-remover.vercel.app/",
   "applicationCategory": "SecurityApplication",
   "operatingSystem": "macOS, Linux, Windows",
   "softwareVersion": "1.1.0",
-  "license": "https://github.com/Jayanth-reflex/file-password-remover/blob/main/LICENSE",
+  "license": "https://github.com/Jayanth-reflex/fpr/blob/main/LICENSE",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "codeRepository": "https://github.com/Jayanth-reflex/file-password-remover",
-  "downloadUrl": "https://github.com/Jayanth-reflex/file-password-remover/releases/latest",
+  "codeRepository": "https://github.com/Jayanth-reflex/fpr",
+  "downloadUrl": "https://github.com/Jayanth-reflex/fpr/releases/latest",
   "author": { "@type": "Person", "name": "Jayanth", "url": "https://github.com/Jayanth-reflex" }
 }
 </script>
@@ -190,19 +190,19 @@ footer a{margin:0 9px;white-space:nowrap;display:inline-block}
       <a href="#agents">AI agents</a>
       <a href="#quality">Quality</a>
     </div>
-    <a class="nav-gh" href="https://github.com/Jayanth-reflex/file-password-remover">GitHub ↗</a>
+    <a class="nav-gh" href="https://github.com/Jayanth-reflex/fpr">GitHub ↗</a>
   </div>
 </nav>
 
 <header class="hero wrap" id="top">
   <span class="eyebrow">Local only · No network code · v1.1.0</span>
-  <h1>Unlock files you own — on your own machine</h1>
+  <h1>Lock and unlock files you own — on your own machine</h1>
   <p class="tagline">Remove password protection from PDF, Office, ZIP and 7-Zip files after you supply the correct password — or add a password to a PDF or ZIP, one you choose or one it generates. No uploads. No account. No telemetry. Output is verified before success is ever reported.</p>
 
   <div class="badges">
-    <img src="https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/ci.yml/badge.svg" alt="CI status: passing across macOS, Linux and Windows">
-    <img src="https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/security.yml/badge.svg" alt="Security workflow status">
-    <img src="https://img.shields.io/github/v/release/Jayanth-reflex/file-password-remover?sort=semver&color=b4502a" alt="Latest release version">
+    <img src="https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml/badge.svg" alt="CI status: passing across macOS, Linux and Windows">
+    <img src="https://github.com/Jayanth-reflex/fpr/actions/workflows/security.yml/badge.svg" alt="Security workflow status">
+    <img src="https://img.shields.io/github/v/release/Jayanth-reflex/fpr?sort=semver&color=b4502a" alt="Latest release version">
     <img src="https://img.shields.io/badge/tests-507%20passing-brightgreen" alt="507 tests passing">
     <img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache 2.0 licensed">
   </div>
@@ -211,18 +211,26 @@ footer a{margin:0 9px;white-space:nowrap;display:inline-block}
     <div class="bar"><i></i><i></i><i></i><span>zsh</span></div>
 <pre><span class="p">$</span> <span class="c">fpr remove quarterly-report.pdf</span>
 Password:
-<span class="g">✓</span> /home/you/quarterly-report-unprotected.pdf
-  removed      user-password
-  algorithm    AES-256 (PDF 2.0, R6)
-  size         2.3 MiB -&gt; 2.2 MiB in 0.41s
-  <span class="g">verified</span>     encrypted=false, pages=12, content_digest=7c411878be0a3889
-  original     /home/you/quarterly-report.pdf <span class="d">(unchanged)</span></pre>
+<span class="g">✓ VERIFIED</span>  quarterly-report-unprotected.pdf
+   removed     user-password
+   algorithm   AES-256 (PDF 2.0, R6)
+   ENCRYPTED  PAGES  DIGEST
+   false      12     7c411878be0a3889
+   original    quarterly-report.pdf <span class="d">(unchanged)</span>
+
+<span class="p">$</span> <span class="c">fpr protect notes.pdf --generate</span>
+<span class="g">✓ PROTECTED</span>  notes-protected.pdf
+   algorithm   AES-256 (PDF 2.0, R6)
+   ENCRYPTED  OPENS  PAGES  DIGEST
+   true       true   3      456cf7bce5ff12ef
+   PASSWORD    dsba-49rk-kr3e-yekq-7u83
+   <span class="d">Save this now. It is shown once, and this tool cannot recover it.</span></pre>
   </div>
 
   <div class="cta">
     <a class="btn primary" href="#platforms">⬇ Download</a>
-    <a class="btn" href="https://github.com/Jayanth-reflex/file-password-remover">View on GitHub</a>
-    <a class="btn" href="https://github.com/Jayanth-reflex/file-password-remover/tree/main/docs">Documentation</a>
+    <a class="btn" href="https://github.com/Jayanth-reflex/fpr">View on GitHub</a>
+    <a class="btn" href="https://github.com/Jayanth-reflex/fpr/tree/main/docs">Documentation</a>
   </div>
 </header>
 
@@ -243,7 +251,7 @@ Password:
   <div class="note">
     Most “unlockers” open a PDF with an <strong>empty</strong> password and re-save it without the permission
     flags. That is a bypass, not a decryption. This tool refuses unless you supply the owner password —
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/adr/0008-owner-restriction-policy.md">ADR-0008</a>.
+    <a href="https://github.com/Jayanth-reflex/fpr/blob/main/docs/adr/0008-owner-restriction-policy.md">ADR-0008</a>.
   </div>
 </section>
 
@@ -254,6 +262,8 @@ Password:
     <thead><tr><th></th><th></th></tr></thead>
     <tbody>
       <tr><td class="yes" style="white-space:nowrap">✓ Will</td><td>Decrypt a file when you supply a password its own verifier accepts, and write a new, unencrypted copy</td></tr>
+      <tr><td class="yes" style="white-space:nowrap">✓ Will</td><td>Add a password to a PDF or ZIP — one you type twice, or a strong one it generates — and prove the copy opens with it</td></tr>
+      <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Protect a file in place. The original stays untouched, so a lost password never costs you the file</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Recover, guess or brute-force a password — no dictionary, no retry loop, no “recovery mode”</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Strip permission flags off a document you cannot authenticate against</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Touch DRM, Information Rights Management, or certificate-based encryption</td></tr>
@@ -264,13 +274,13 @@ Password:
 <section class="sec wrap" id="formats">
   <h2><span class="num">03</span>Supported formats</h2>
   <table class="tbl">
-    <thead><tr><th>Format</th><th>Protection handled</th><th>Engine</th></tr></thead>
+    <thead><tr><th>Format</th><th>Unlock</th><th>Lock</th><th>Engine</th></tr></thead>
     <tbody>
-      <tr><td><strong>PDF</strong> <code>.pdf</code></td><td>Standard security handler R2–R6 — RC4-40, RC4-128, AES-128, AES-256</td><td>pikepdf / qpdf</td></tr>
-      <tr><td><strong>Word · Excel · PowerPoint</strong> <code>.docx</code> <code>.xlsx</code> <code>.pptx</code></td><td>ECMA-376 agile (Office 2010+) and standard (2007)</td><td>msoffcrypto-tool</td></tr>
-      <tr><td><strong>ZIP</strong> <code>.zip</code></td><td>WinZip AES-128/192/256, legacy ZipCrypto</td><td>pyzipper</td></tr>
-      <tr><td><strong>7-Zip</strong> <code>.7z</code></td><td>AES-256 including encrypted headers</td><td>py7zr — optional extra</td></tr>
-      <tr><td><strong>Legacy Office</strong> <code>.doc</code> <code>.xls</code> <code>.ppt</code></td><td>RC4 / CryptoAPI — <strong>experimental</strong>, needs <code>--experimental</code></td><td>msoffcrypto-tool</td></tr>
+      <tr><td><strong>PDF</strong> <code>.pdf</code></td><td>Standard security handler R2–R6 — RC4-40, RC4-128, AES-128, AES-256</td><td class="yes">AES-256 (R6)</td><td>pikepdf / qpdf</td></tr>
+      <tr><td><strong>Word · Excel · PowerPoint</strong> <code>.docx</code> <code>.xlsx</code> <code>.pptx</code></td><td>ECMA-376 agile (Office 2010+) and standard (2007)</td><td>—</td><td>msoffcrypto-tool</td></tr>
+      <tr><td><strong>ZIP</strong> <code>.zip</code></td><td>WinZip AES-128/192/256, legacy ZipCrypto</td><td class="yes">AES-256</td><td>pyzipper</td></tr>
+      <tr><td><strong>7-Zip</strong> <code>.7z</code></td><td>AES-256 including encrypted headers</td><td>—</td><td>py7zr — optional extra</td></tr>
+      <tr><td><strong>Legacy Office</strong> <code>.doc</code> <code>.xls</code> <code>.ppt</code></td><td>RC4 / CryptoAPI — <strong>experimental</strong>, needs <code>--experimental</code></td><td>—</td><td>msoffcrypto-tool</td></tr>
     </tbody>
   </table>
 </section>
@@ -284,22 +294,22 @@ Password:
       <div class="icon">🍎</div>
       <h3>macOS</h3>
       <div class="sub2">Apple silicon &amp; Intel</div>
-      <pre>pipx install git+https://github.com/Jayanth-reflex/file-password-remover</pre>
-      <a class="dl" href="https://github.com/Jayanth-reflex/file-password-remover/releases/latest/download/file-password-remover-macOS-ARM64.tar.gz">⬇ Standalone .tar.gz</a>
+      <pre>pipx install git+https://github.com/Jayanth-reflex/fpr</pre>
+      <a class="dl" href="https://github.com/Jayanth-reflex/fpr/releases/latest/download/file-password-remover-macOS-ARM64.tar.gz">⬇ Standalone .tar.gz</a>
     </div>
     <div class="plat">
       <div class="icon">🐧</div>
       <h3>Linux</h3>
       <div class="sub2">glibc 2.28+</div>
-      <pre>pipx install git+https://github.com/Jayanth-reflex/file-password-remover</pre>
-      <a class="dl" href="https://github.com/Jayanth-reflex/file-password-remover/releases/latest/download/file-password-remover-Linux-X64.tar.gz">⬇ Standalone .tar.gz</a>
+      <pre>pipx install git+https://github.com/Jayanth-reflex/fpr</pre>
+      <a class="dl" href="https://github.com/Jayanth-reflex/fpr/releases/latest/download/file-password-remover-Linux-X64.tar.gz">⬇ Standalone .tar.gz</a>
     </div>
     <div class="plat">
       <div class="icon">🪟</div>
       <h3>Windows</h3>
       <div class="sub2">10 / 11, x64</div>
-      <pre>pip install git+https://github.com/Jayanth-reflex/file-password-remover</pre>
-      <a class="dl" href="https://github.com/Jayanth-reflex/file-password-remover/releases/latest/download/file-password-remover-Windows-X64.zip">⬇ Standalone .zip</a>
+      <pre>pip install git+https://github.com/Jayanth-reflex/fpr</pre>
+      <a class="dl" href="https://github.com/Jayanth-reflex/fpr/releases/latest/download/file-password-remover-Windows-X64.zip">⬇ Standalone .zip</a>
     </div>
     <div class="plat">
       <div class="icon">🐳</div>
@@ -308,19 +318,18 @@ Password:
       <pre>docker run --rm -v "$PWD:/data" \
   ghcr.io/jayanth-reflex/file-password-remover \
   inspect /data/report.pdf</pre>
-      <a class="dl" href="https://github.com/Jayanth-reflex/file-password-remover/pkgs/container/file-password-remover">⬇ ghcr.io image ↗</a>
+      <a class="dl" href="https://github.com/Jayanth-reflex/fpr/pkgs/container/file-password-remover">⬇ ghcr.io image ↗</a>
     </div>
-    <div class="plat plat-unavailable">
+    <div class="plat">
       <div class="icon">📱</div>
-      <h3>iOS / Android</h3>
-      <div class="sub2">No app, no APK — by design</div>
+      <h3>Android / iOS</h3>
+      <div class="sub2">Sideloaded, not in a store</div>
       <p style="font-size:.83rem;color:var(--dim);margin:0">
-        Decrypting a file means holding the plaintext password and the plaintext
-        file in memory together. That boundary is harder to defend on a
-        general-purpose mobile OS, so no mobile build is shipped rather than
-        shipping one without the same guarantees.
+        Android: a debug-signed APK on the release page. iOS: build
+        <code>ios/FilePasswordRemover.xcodeproj</code> with your own Apple ID.
+        Both are tested against the same encrypted files as the CLI.
       </p>
-      <a class="dl" href="https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/adr/0010-no-mobile-app-this-release.md">Read why ↗</a>
+      <a class="dl" href="https://github.com/Jayanth-reflex/fpr/releases/latest/download/file-password-remover-android-debug.apk">⬇ Android .apk</a>
     </div>
   </div>
 
@@ -328,7 +337,7 @@ Password:
     <strong>Verify what you downloaded before you run it:</strong>
     <code>shasum -a 256 -c SHA256SUMS</code> (macOS/Linux) or
     <code>certutil -hashfile fpr.zip SHA256</code> (Windows), against the
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/releases/latest">SHA256SUMS on the release page</a>.
+    <a href="https://github.com/Jayanth-reflex/fpr/releases/latest">SHA256SUMS on the release page</a>.
     Standalone bundles are <strong>unsigned</strong> — Gatekeeper/SmartScreen will
     say so; that's expected. Not on PyPI yet, so <code>pip install</code> needs the
     <code>git+</code> form above.
@@ -344,6 +353,7 @@ Password:
     <div class="card"><h3>3. Re-open</h3><p>The file is read back from disk and proved to be unprotected — not assumed from a library call's return value.</p></div>
     <div class="card"><h3>4. Compare</h3><p>The invariants are recomputed and checked against the ones captured from the input.</p></div>
     <div class="card"><h3>5. Or fail loudly</h3><p>Any mismatch scrubs the output and exits <code>9</code>. A file that cannot be proved good never reaches the name you asked for.</p></div>
+    <div class="card"><h3>Protecting is checked too</h3><p><code>fpr protect</code> re-opens the new copy <em>with the password</em> and compares its digest to the original's before it says done.</p></div>
     <div class="card"><h3>No password on argv</h3><p>There is no <code>--password VALUE</code> flag. Command lines are readable by every process and land in shell history. Use <code>--password-stdin</code>.</p></div>
   </div>
 </section>
@@ -388,14 +398,14 @@ Password:
 
 <footer class="wrap">
   <p>
-    <a href="https://github.com/Jayanth-reflex/file-password-remover">GitHub</a>·
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/tree/main/docs">Docs</a>·
+    <a href="https://github.com/Jayanth-reflex/fpr">GitHub</a>·
+    <a href="https://github.com/Jayanth-reflex/fpr/tree/main/docs">Docs</a>·
     <a href="/agents.md">agents.md</a>·
     <a href="/llms.txt">llms.txt</a>·
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/product/format-matrix.md">Format matrix</a>·
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/security/threat-model.md">Threat model</a>·
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/reports/known-limitations.md">Known limitations</a>·
-    <a href="https://github.com/Jayanth-reflex/file-password-remover/releases/latest">Releases</a>
+    <a href="https://github.com/Jayanth-reflex/fpr/blob/main/docs/product/format-matrix.md">Format matrix</a>·
+    <a href="https://github.com/Jayanth-reflex/fpr/blob/main/docs/security/threat-model.md">Threat model</a>·
+    <a href="https://github.com/Jayanth-reflex/fpr/blob/main/docs/reports/known-limitations.md">Known limitations</a>·
+    <a href="https://github.com/Jayanth-reflex/fpr/releases/latest">Releases</a>
   </p>
   <p>Apache-2.0. This site is documentation only — it has no upload form, and never will.</p>
 </footer>

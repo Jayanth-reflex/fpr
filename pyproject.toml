@@ -58,10 +58,10 @@ dev = [
 build = ["pyinstaller>=6.6", "hatchling>=1.25"]
 
 [project.urls]
-Homepage = "https://github.com/Jayanth-reflex/file-password-remover"
-Documentation = "https://github.com/Jayanth-reflex/file-password-remover/tree/main/docs"
-Issues = "https://github.com/Jayanth-reflex/file-password-remover/issues"
-Changelog = "https://github.com/Jayanth-reflex/file-password-remover/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Jayanth-reflex/fpr"
+Documentation = "https://github.com/Jayanth-reflex/fpr/tree/main/docs"
+Issues = "https://github.com/Jayanth-reflex/fpr/issues"
+Changelog = "https://github.com/Jayanth-reflex/fpr/blob/main/CHANGELOG.md"
 
 [project.scripts]
 fpr = "fpr.cli.main:main"

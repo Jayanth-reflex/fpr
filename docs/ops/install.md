@@ -14,13 +14,13 @@ ours.
 ## From the repository
 
 ```bash
-pipx install git+https://github.com/Jayanth-reflex/file-password-remover
+pipx install git+https://github.com/Jayanth-reflex/fpr
 ```
 
 Or with pip, which also gives you `fpr-gui` and the Python API:
 
 ```bash
-pip install "file-password-remover @ git+https://github.com/Jayanth-reflex/file-password-remover"
+pip install "file-password-remover @ git+https://github.com/Jayanth-reflex/fpr"
 ```
 
 Python 3.10 or newer. Add 7-Zip support — a separate extra because `py7zr` is
@@ -28,13 +28,13 @@ LGPL-2.1-or-later and the default install stays permissive
 ([ADR-0006](../adr/0006-optional-lgpl-sevenzip-extra.md)):
 
 ```bash
-pip install "file-password-remover[sevenzip] @ git+https://github.com/Jayanth-reflex/file-password-remover"
+pip install "file-password-remover[sevenzip] @ git+https://github.com/Jayanth-reflex/fpr"
 ```
 
 Pin to a release rather than `main` for anything you depend on:
 
 ```bash
-pip install "file-password-remover @ git+https://github.com/Jayanth-reflex/file-password-remover@v1.0.0"
+pip install "file-password-remover @ git+https://github.com/Jayanth-reflex/fpr@v1.0.0"
 ```
 
 ## Once it is on PyPI
@@ -110,14 +110,14 @@ password still exits 3 — then signed with cosign keyless signing:
 
 ```bash
 cosign verify ghcr.io/jayanth-reflex/file-password-remover:latest \
-  --certificate-identity-regexp '^https://github.com/Jayanth-reflex/file-password-remover/' \
+  --certificate-identity-regexp '^https://github.com/Jayanth-reflex/fpr/' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
 ## Standalone bundle (no Python needed)
 
 Download the archive for your platform from the
-[releases page](https://github.com/Jayanth-reflex/file-password-remover/releases),
+[releases page](https://github.com/Jayanth-reflex/fpr/releases),
 then **verify it before running it**:
 
 ```bash
@@ -166,7 +166,7 @@ If that is not acceptable in your environment — and it is a reasonable positio
 ## From source
 
 ```bash
-git clone https://github.com/Jayanth-reflex/file-password-remover
+git clone https://github.com/Jayanth-reflex/fpr
 cd file-password-remover
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev,sevenzip]"

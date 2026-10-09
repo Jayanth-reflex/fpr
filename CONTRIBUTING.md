@@ -3,7 +3,7 @@
 ## Getting set up
 
 ```bash
-git clone https://github.com/Jayanth-reflex/file-password-remover
+git clone https://github.com/Jayanth-reflex/fpr
 cd file-password-remover
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev,sevenzip]"

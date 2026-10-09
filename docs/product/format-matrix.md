@@ -10,6 +10,9 @@ Four categories, kept separate on purpose:
 - **Cannot be removed reliably** — detected, reported, refused.
 - **Permanently unsupported** — technical, legal or licensing reasons, stated.
 
+Adding a password is the other direction, covered in
+[Protection that can be added](#protection-that-can-be-added).
+
 Run `fpr formats` for the same information from the tool itself.
 
 ---
@@ -34,6 +37,24 @@ Run `fpr formats` for the same information from the tool itself.
 | Format | Extensions | Scheme | Why experimental |
 | --- | --- | --- | --- |
 | Legacy Office 97–2003 | `.doc` `.dot` `.xls` `.xlt` `.ppt` `.pot` `.pps` | RC4 / RC4 CryptoAPI | **Detection is tested; decryption is not.** No open tool can *produce* an encrypted BIFF8 or Word 97 document, and no sample can be safely redistributed, so there is no fixture for the decryption path. Requires `--experimental`, and says so in every message. |
+
+---
+
+## Protection that can be added
+
+`fpr protect` writes a new, encrypted copy. Success is reported only after the
+copy is re-opened from disk **with the password** and its content digest
+matches the original's.
+
+| Format | Extensions | Scheme written | Adapter | Test |
+| --- | --- | --- | --- | --- |
+| PDF | `.pdf` | **R6** (AES-256, PDF 2.0) | `adapters/pdf.py` | `test_protect.py::test_protecting_a_pdf_produces_a_file_that_needs_the_password` |
+| ZIP | `.zip` | **WinZip AES-256** (AE-2) | `adapters/zipfiles.py` | `test_protect.py::test_protecting_a_zip_produces_a_file_that_needs_the_password` |
+
+Other formats are refused with a message naming the format
+(`test_an_unsupported_format_says_so_rather_than_failing_obscurely`), and so is a
+file that is already encrypted. There is no `--in-place`:
+[cli.md](../ops/cli.md#why-there-is-no---in-place).
 
 ---
 

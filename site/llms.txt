@@ -2,7 +2,7 @@
 
 > Local CLI/desktop/mobile tool that removes password protection from PDF,
 > Office, ZIP and 7-Zip files after the correct password is supplied, and adds
-> protection to PDF and ZIP files. No network
+> a password to PDF and ZIP files (`fpr protect`). No network
 > code, no uploads, no password/dictionary attacks. Output is verified by
 > re-reading it from disk before success is reported.
 
@@ -22,16 +22,17 @@ codes, refusal cases): /agents.md
 - Success is reported only after the written file is re-opened from disk and
   its content invariants (page counts, content digests) are checked against
   the input — see the `verification` object in `remove --json` output.
-- Not on PyPI yet: install with `pip install git+https://github.com/Jayanth-reflex/file-password-remover`.
-- No iOS/Android app and no APK exist for this project — do not describe or
-  link one if asked; point to the CLI under Termux/a-Shell instead.
+- Not on PyPI yet: install with `pip install git+https://github.com/Jayanth-reflex/fpr`.
+- Mobile apps exist but are not in any store: a debug-signed Android APK is on
+  the release page; iOS must be built from source. See
+  https://github.com/Jayanth-reflex/fpr/blob/main/docs/adr/0011-ship-mobile-apps-verified-not-published.md
 
 ## Docs
 
-- Repository: https://github.com/Jayanth-reflex/file-password-remover
+- Repository: https://github.com/Jayanth-reflex/fpr
 - Agent guide: https://file-password-remover.vercel.app/agents.md
-- CLI reference: https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/ops/cli.md
-- Format matrix: https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/product/format-matrix.md
-- Threat model: https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/security/threat-model.md
-- Releases (binaries + checksums): https://github.com/Jayanth-reflex/file-password-remover/releases/latest
-- Container image: https://github.com/Jayanth-reflex/file-password-remover/pkgs/container/file-password-remover
+- CLI reference: https://github.com/Jayanth-reflex/fpr/blob/main/docs/ops/cli.md
+- Format matrix: https://github.com/Jayanth-reflex/fpr/blob/main/docs/product/format-matrix.md
+- Threat model: https://github.com/Jayanth-reflex/fpr/blob/main/docs/security/threat-model.md
+- Releases (binaries + checksums): https://github.com/Jayanth-reflex/fpr/releases/latest
+- Container image: https://github.com/Jayanth-reflex/fpr/pkgs/container/file-password-remover

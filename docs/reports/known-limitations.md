@@ -7,7 +7,7 @@ it is to matter.
 
 | # | Limitation | Consequence | Workaround |
 | --- | --- | --- | --- |
-| L-01 | **No iOS or Android application.** | The tool is unavailable on phones and tablets as a native app. | The CLI runs under a-Shell/iSH (iOS) or Termux (Android), which is a workaround rather than support. See [mobile/README.md](../../mobile/README.md) and [ADR-0010](../adr/0010-no-mobile-app-this-release.md). |
+| L-01 | **The mobile apps are not in an app store.** The Android APK on the release page is debug-signed; there is no iOS download. | Android installs are sideloaded; iOS users build the app themselves. | Build iOS from `ios/FilePasswordRemover.xcodeproj` with your own Apple ID. See [mobile/README.md](../../mobile/README.md) and [ADR-0011](../adr/0011-ship-mobile-apps-verified-not-published.md). |
 | L-02 | **Bundles are unsigned.** | macOS Gatekeeper and Windows SmartScreen warn. | Verify the SHA-256, or install via `pip`, which is verified through PyPI. Signing steps: [release.md](../ops/release.md). |
 | L-03 | **Only macOS arm64 was built and run on the development host.** Linux and Windows bundles are produced by CI. | Platform-specific bundle bugs on Linux/Windows would be caught by CI's smoke test, not by a human. | The CI job runs the same `scripts/build_desktop.sh`, which decrypts a real fixture and verifies the output. |
 
@@ -17,6 +17,7 @@ it is to matter.
 | --- | --- | --- | --- |
 | L-04 | **Legacy Office (.doc/.xls/.ppt) decryption is experimental.** Detection is tested; decryption has no fixture, because no open tool can produce an encrypted BIFF8 or Word 97 document. | The path is off by default and unproven. | `--experimental`, then check the output opens before deleting the original. |
 | L-05 | **ECMA-376 *standard* encryption (Office 2007) has no fixture.** The code path exists and is selected by detection, but only the *agile* scheme is exercised by a test. | An Office 2007-era encrypted file is handled by untested code. | Reported honestly here; a standard-scheme generator is the obvious next fixture. |
+| L-27 | **Only PDF and ZIP can be protected.** `fpr protect` refuses Office and 7-Zip files. | Adding a password to a Word, Excel or 7-Zip file needs another tool. | Use the application's own *Encrypt with Password*, or `7z a -p`. See the [format matrix](../product/format-matrix.md#protection-that-can-be-added). |
 | L-06 | **No RAR support, permanently.** | `.rar` archives cannot be processed. | Use WinRAR or `unar`. Reason: [format matrix](../product/format-matrix.md#permanently-unsupported). |
 | L-07 | **Office editing restrictions are refused, not removed.** | A "Restrict editing" Word document stays restricted. | Use the application's own *Stop Protection*. This is a deliberate policy, [ADR-0008](../adr/0008-owner-restriction-policy.md). |
 | L-08 | **No DRM, IRM or certificate-based decryption.** | Rights-managed files are out of reach. | None. Permanently out of scope. |

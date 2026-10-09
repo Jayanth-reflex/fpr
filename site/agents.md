@@ -3,12 +3,12 @@
 This file is for an AI agent (or the person prompting one) that needs to use
 `fpr` — either by shelling out to it, or by wrapping it as a tool. It is
 generated from the same source of truth as the human docs and kept in sync;
-nothing here is aspirational. Human docs: <https://github.com/Jayanth-reflex/file-password-remover>.
+nothing here is aspirational. Human docs: <https://github.com/Jayanth-reflex/fpr>.
 
 ## What this is
 
 `fpr` removes password protection from a file **after being given the
-correct password**. It runs entirely on the local machine: no network code
+correct password**, and adds a password to a PDF or ZIP (`fpr protect`). It runs entirely on the local machine: no network code
 exists in the package (enforced by a test that parses every module and blocks
 `socket.connect`), so nothing about the file or the password can be exfiltrated
 by this tool, by design, not by configuration you could disable.
@@ -21,9 +21,9 @@ it. A wrong password fails once, cleanly, with a distinct exit code.
 ## Install (non-interactive, for a sandbox or CI)
 
 ```bash
-pipx install git+https://github.com/Jayanth-reflex/file-password-remover
+pipx install git+https://github.com/Jayanth-reflex/fpr
 # or, without pipx:
-pip install "file-password-remover[sevenzip] @ git+https://github.com/Jayanth-reflex/file-password-remover"
+pip install "file-password-remover[sevenzip] @ git+https://github.com/Jayanth-reflex/fpr"
 ```
 
 Or run it in a container with no host install at all:
@@ -230,15 +230,14 @@ fpr --json inspect ~/inbox -r | jq -r '.results[] | select(.removability=="remov
 | `.7z` | AES-256, incl. encrypted headers (needs the `sevenzip` extra) |
 | `.doc` `.xls` `.ppt` | RC4/CryptoAPI — **experimental**, needs `--experimental` |
 
-Full matrix: <https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/product/format-matrix.md>
+Full matrix: <https://github.com/Jayanth-reflex/fpr/blob/main/docs/product/format-matrix.md>
 
 ## Not available
 
 - **No PyPI package yet.** Install via `git+` as shown above.
-- **No iOS or Android app**, and no APK — deliberate, see
-  [ADR-0010](https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/adr/0010-no-mobile-app-this-release.md).
-  Don't fabricate a mobile install path for a user who asks; point them at the
-  CLI running under Termux/a-Shell, or at the desktop build.
+- **No app-store listing.** The Android APK on the release page is
+  debug-signed and sideloaded; iOS is built from source. See
+  [ADR-0011](https://github.com/Jayanth-reflex/fpr/blob/main/docs/adr/0011-ship-mobile-apps-verified-not-published.md).
 - **No API server, no webhook, no hosted endpoint.** This is a local binary.
   If a task implies "send this file to a service to unlock it," that service
   is not this project, and running one that receives files and passwords is
@@ -246,7 +245,7 @@ Full matrix: <https://github.com/Jayanth-reflex/file-password-remover/blob/main/
 
 ## Full reference
 
-- CLI reference (every flag): <https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/ops/cli.md>
-- Threat model: <https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/security/threat-model.md>
-- Verification design (what `verification` in the JSON actually proves): <https://github.com/Jayanth-reflex/file-password-remover/blob/main/docs/adr/0004-verify-before-publish.md>
+- CLI reference (every flag): <https://github.com/Jayanth-reflex/fpr/blob/main/docs/ops/cli.md>
+- Threat model: <https://github.com/Jayanth-reflex/fpr/blob/main/docs/security/threat-model.md>
+- Verification design (what `verification` in the JSON actually proves): <https://github.com/Jayanth-reflex/fpr/blob/main/docs/adr/0004-verify-before-publish.md>
 - Machine-summary index: <https://file-password-remover.vercel.app/llms.txt>

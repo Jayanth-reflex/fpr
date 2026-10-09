@@ -149,5 +149,5 @@ erasure on modern storage.
 - Zero findings from bandit; zero known advisories in any pinned dependency as
   of 2026-09-19.
 
-[1.1.0]: https://github.com/Jayanth-reflex/file-password-remover/releases/tag/v1.1.0
-[1.0.0]: https://github.com/Jayanth-reflex/file-password-remover/releases/tag/v1.0.0
+[1.1.0]: https://github.com/Jayanth-reflex/fpr/releases/tag/v1.1.0
+[1.0.0]: https://github.com/Jayanth-reflex/fpr/releases/tag/v1.0.0

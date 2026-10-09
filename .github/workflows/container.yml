@@ -18,7 +18,8 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE: ${{ github.repository }}
+  # Pinned: the repo is now `fpr`, but the published image keeps its name.
+  IMAGE: ${{ github.repository_owner }}/file-password-remover
 
 concurrency:
   group: container-${{ github.ref }}
@@ -191,6 +192,6 @@ jobs:
           # Keyless signing: the identity is this workflow, recorded in the
           # public Rekor transparency log. Verify with:
           #   cosign verify ghcr.io/jayanth-reflex/file-password-remover:latest \
-          #     --certificate-identity-regexp '^https://github.com/Jayanth-reflex/file-password-remover/' \
+          #     --certificate-identity-regexp '^https://github.com/Jayanth-reflex/fpr/' \
           #     --certificate-oidc-issuer https://token.actions.githubusercontent.com
           cosign sign --yes "${REGISTRY}/${image_lc}@${DIGEST}"
