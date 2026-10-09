@@ -16,7 +16,7 @@ codes, refusal cases): /agents.md
 - No `--password VALUE` flag exists, on purpose (shell history / `ps`
   exposure). Use `--password-stdin`, `--password-fd N`, or `--password-file`.
 - `--json` on every command gives structured, machine-parseable output.
-- `fpr protect FILE --generate` adds a password (PDF and ZIP only) and returns
+- `fpr protect FILE --generate` sets a password (PDF and ZIP only) and returns
   it as `generated_password`. It is the only copy that will ever exist; store it
   before doing anything else. No in-place mode, one file per run.
 - Success is reported only after the written file is re-opened from disk and

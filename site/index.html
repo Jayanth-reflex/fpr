@@ -6,7 +6,7 @@
 <title>File Password Remover — lock and unlock files you own, locally</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png">
-<meta name="description" content="Remove password protection from PDF, Word, Excel, PowerPoint, ZIP and 7-Zip files after you supply the correct password, or add a password to a PDF or ZIP. Runs entirely on your machine — no uploads, no telemetry, no network code. Output is verified before success is reported.">
+<meta name="description" content="Remove password protection from PDF, Word, Excel, PowerPoint, ZIP and 7-Zip files after you supply the correct password, or set a password on a PDF or ZIP. Runs entirely on your machine — no uploads, no telemetry, no network code. Output is verified before success is reported.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://file-password-remover.vercel.app/">
 
@@ -34,7 +34,7 @@
   "@type": "SoftwareApplication",
   "name": "File Password Remover",
   "alternateName": "fpr",
-  "description": "Removes password protection from PDF, Office, ZIP and 7-Zip files locally, after the correct password is supplied, and adds a password to PDF and ZIP files. No uploads, no network code, output verified before success is reported.",
+  "description": "Removes password protection from PDF, Office, ZIP and 7-Zip files locally, after the correct password is supplied, and sets a password on PDF and ZIP files. No uploads, no network code, output verified before success is reported.",
   "url": "https://file-password-remover.vercel.app/",
   "applicationCategory": "SecurityApplication",
   "operatingSystem": "macOS, Linux, Windows",
@@ -197,7 +197,7 @@ footer a{margin:0 9px;white-space:nowrap;display:inline-block}
 <header class="hero wrap" id="top">
   <span class="eyebrow">Local only · No network code · v1.1.0</span>
   <h1>Lock and unlock files you own — on your own machine</h1>
-  <p class="tagline">Remove password protection from PDF, Office, ZIP and 7-Zip files after you supply the correct password — or add a password to a PDF or ZIP, one you choose or one it generates. No uploads. No account. No telemetry. Output is verified before success is ever reported.</p>
+  <p class="tagline">Remove password protection from PDF, Office, ZIP and 7-Zip files after you supply the correct password — or set a password on a PDF or ZIP, one you choose or one it generates. No uploads. No account. No telemetry. Output is verified before success is ever reported.</p>
 
   <div class="badges">
     <img src="https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml/badge.svg" alt="CI status: passing across macOS, Linux and Windows">
@@ -262,7 +262,7 @@ Password:
     <thead><tr><th></th><th></th></tr></thead>
     <tbody>
       <tr><td class="yes" style="white-space:nowrap">✓ Will</td><td>Decrypt a file when you supply a password its own verifier accepts, and write a new, unencrypted copy</td></tr>
-      <tr><td class="yes" style="white-space:nowrap">✓ Will</td><td>Add a password to a PDF or ZIP — one you type twice, or a strong one it generates — and prove the copy opens with it</td></tr>
+      <tr><td class="yes" style="white-space:nowrap">✓ Will</td><td>Set a password on a PDF or ZIP — one you type twice, or a strong one it generates — and prove the copy opens with it</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Protect a file in place. The original stays untouched, so a lost password never costs you the file</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Recover, guess or brute-force a password — no dictionary, no retry loop, no “recovery mode”</td></tr>
       <tr><td style="color:var(--bad);white-space:nowrap">✕ Will not</td><td>Strip permission flags off a document you cannot authenticate against</td></tr>

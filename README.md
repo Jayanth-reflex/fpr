@@ -4,7 +4,7 @@
 
 # File Password Remover
 
-**Remove or add password protection on files you own — locally, with the result verified before it is written.**
+**Remove or set passwords on files you own — locally, with the result verified before it is written.**
 
 [![CI](https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml/badge.svg)](https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml)
 [![Security](https://github.com/Jayanth-reflex/fpr/actions/workflows/security.yml/badge.svg)](https://github.com/Jayanth-reflex/fpr/actions/workflows/security.yml)
@@ -15,7 +15,7 @@
 </div>
 
 `fpr` is a command-line tool (with an optional desktop app) that removes password
-protection from files you can already open, and adds a password to files that have
+protection from files you can already open, and sets a password on files that have
 none. It runs entirely on your machine — there is no server and no network code.
 
 **Scope, honestly:**
@@ -88,7 +88,7 @@ Password:
    original    quarterly-report.pdf (unchanged)
 ```
 
-**Protect** — add a password (yours, or one it generates) to a PDF or ZIP:
+**Protect** — set a password (yours, or one it generates) on a PDF or ZIP:
 
 ```console
 $ fpr protect notes.pdf --generate
@@ -201,7 +201,7 @@ More: [threat model](docs/security/threat-model.md) ·
 
 | | |
 | :--- | :--- |
-| 📖 **Using it** | [CLI reference](docs/ops/cli.md) · [Install](docs/ops/install.md) · [Uninstall](docs/ops/uninstall.md) |
+| 📖 **Using it** | [CLI reference](docs/ops/cli.md) · [Set a password](docs/ops/cli.md#fpr-protect-file) · [Install](docs/ops/install.md) · [Uninstall](docs/ops/uninstall.md) |
 | 🧭 **Scope** | [Requirements](docs/product/requirements.md) · [Format matrix](docs/product/format-matrix.md) |
 | 🏛 **Design** | [Architecture decisions (ADRs)](docs/adr/) · [Project graph](docs/graph/project-graph.md) |
 | 🔐 **Security** | [Threat model](docs/security/threat-model.md) · [Abuse cases](docs/security/abuse-cases.md) |
