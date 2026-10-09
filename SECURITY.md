@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Open a [private security advisory](https://github.com/Jayanth-reflex/file-password-remover/security/advisories/new)
+Open a [private security advisory](https://github.com/Jayanth-reflex/fpr/security/advisories/new)
 on GitHub. Please do not open a public issue for anything that affects the
 confidentiality of a password or a decrypted document.
 

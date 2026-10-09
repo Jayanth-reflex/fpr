@@ -14,6 +14,7 @@
 | :--- | :--- |
 | Install it | [install.md](ops/install.md) — pip, pipx, Docker, standalone bundles |
 | Use the command line | [cli.md](ops/cli.md) — every flag, exit code and recipe |
+| Add a password to a file | [`fpr protect`](ops/cli.md#fpr-protect-file) — PDF and ZIP, a password you choose or one it generates |
 | Know whether my file is supported | [format-matrix.md](product/format-matrix.md) |
 | Know what it refuses to do, and why | [format-matrix.md](product/format-matrix.md) and [abuse-cases.md](security/abuse-cases.md) |
 | Remove it again | [uninstall.md](ops/uninstall.md) |

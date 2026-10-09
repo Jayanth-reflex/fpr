@@ -20,7 +20,7 @@ body:
         and what `fpr inspect` reports about it.
 
         For anything affecting the confidentiality of a password or a document,
-        use a [private security advisory](https://github.com/Jayanth-reflex/file-password-remover/security/advisories/new)
+        use a [private security advisory](https://github.com/Jayanth-reflex/fpr/security/advisories/new)
         rather than this form.
   - type: textarea
     id: what

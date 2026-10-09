@@ -31,8 +31,8 @@ FROM python:3.12-slim
 
 LABEL org.opencontainers.image.title="File Password Remover" \
       org.opencontainers.image.description="Remove password protection from files you own, locally, after you supply the correct password. No uploads, no telemetry, verified output." \
-      org.opencontainers.image.source="https://github.com/Jayanth-reflex/file-password-remover" \
-      org.opencontainers.image.documentation="https://github.com/Jayanth-reflex/file-password-remover#readme" \
+      org.opencontainers.image.source="https://github.com/Jayanth-reflex/fpr" \
+      org.opencontainers.image.documentation="https://github.com/Jayanth-reflex/fpr#readme" \
       org.opencontainers.image.licenses="Apache-2.0"
 
 # No build toolchain in the final image: every dependency has a manylinux wheel.

@@ -6,8 +6,8 @@
 
 **Remove or add password protection on files you own — locally, with the result verified before it is written.**
 
-[![CI](https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/ci.yml/badge.svg)](https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/ci.yml)
-[![Security](https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/security.yml/badge.svg)](https://github.com/Jayanth-reflex/file-password-remover/actions/workflows/security.yml)
+[![CI](https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml/badge.svg)](https://github.com/Jayanth-reflex/fpr/actions/workflows/ci.yml)
+[![Security](https://github.com/Jayanth-reflex/fpr/actions/workflows/security.yml/badge.svg)](https://github.com/Jayanth-reflex/fpr/actions/workflows/security.yml)
 [![Python](https://img.shields.io/badge/python-3.10%20%E2%80%93%203.13-blue)](pyproject.toml)
 [![Network](https://img.shields.io/badge/network-none-success)](docs/adr/0002-local-only-no-backend.md)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
@@ -37,14 +37,14 @@ none. It runs entirely on your machine — there is no server and no network cod
 Requires Python 3.10–3.13.
 
 ```bash
-pipx install git+https://github.com/Jayanth-reflex/file-password-remover
+pipx install git+https://github.com/Jayanth-reflex/fpr
 ```
 
 Optional extras — 7-Zip support (`sevenzip`, pulls in the LGPL `py7zr`) and the
 desktop GUI (`gui`, adds the `fpr-gui` command):
 
 ```bash
-pipx install "file-password-remover[sevenzip,gui] @ git+https://github.com/Jayanth-reflex/file-password-remover"
+pipx install "file-password-remover[sevenzip,gui] @ git+https://github.com/Jayanth-reflex/fpr"
 ```
 
 Standalone bundles, a signed Docker image, and mobile builds are described in
