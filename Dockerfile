@@ -17,7 +17,7 @@
 # yourself with a one-line derived image if you need .7z support.
 
 # ---------------------------------------------------------------- build ---
-FROM python:3.12-slim AS build
+FROM python:3.14-slim AS build
 
 WORKDIR /src
 RUN python -m pip install --no-cache-dir --upgrade pip build
@@ -27,7 +27,7 @@ COPY src ./src
 RUN python -m build --wheel --outdir /dist
 
 # -------------------------------------------------------------- runtime ---
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 LABEL org.opencontainers.image.title="File Password Remover" \
       org.opencontainers.image.description="Remove password protection from files you own, locally, after you supply the correct password. No uploads, no telemetry, verified output." \
